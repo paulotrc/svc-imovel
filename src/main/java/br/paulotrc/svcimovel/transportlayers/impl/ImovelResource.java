@@ -43,6 +43,20 @@ public class ImovelResource implements ImovelResourceI {
     }
 
     @Override
+    public ResponseEntity<List<ImovelResponse>> getPorCep(
+            @Parameter(name = "cep", description = "Cep do imóvel", required = true)
+            @PathVariable("cep") String cep
+    ) {
+        List<Imovel> imovels = null;
+        try {
+            imovels = imovelUseCase.consultarPorCep(cep);
+        }catch (ResourceException e){
+            ExceptionUtil.throwException(e);
+        }
+        return ResponseEntity.ok(ImovelMapper.INSTANCE.mapListResponse(imovels));
+    }
+
+    @Override
     public ResponseEntity<List<ImovelResponse>> getAll() {
         List<Imovel> imovels = null;
         try {

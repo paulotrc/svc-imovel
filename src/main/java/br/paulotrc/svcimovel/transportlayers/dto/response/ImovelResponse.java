@@ -13,10 +13,15 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ImovelResponse {
 
-    private UUID id;
-    private String cpf;
-    private Boolean temRestricao;
-    private TipoRestricaoImovel tipoRestricaoImovel;
-    private BigDecimal valorRestricao;
+    private UUID id = UUID.randomUUID();
+    private String cpf; //Documento de identificação do dono do imóvel
+    private String cep;
+    private String estado;
+    private String cidade;
+    private String bairro;
+    private String endereco;
+    private String numero;
+    private String complemento;
+    private String referencia;
 }
 

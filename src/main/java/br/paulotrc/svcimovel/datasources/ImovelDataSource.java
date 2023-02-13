@@ -31,4 +31,9 @@ public class ImovelDataSource implements ImovelRepository {
     public List<Imovel> consultarPorCpf(String cpf) {
         return mongoImovelRepository.consultarPorCpf(cpf);
     }
+
+    @Override
+    public List<Imovel> consultarPorCep(String cep) {
+        return mongoImovelRepository.consultarPorCep(cep);
+    }
 }

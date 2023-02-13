@@ -10,6 +10,7 @@ public interface ImovelRepository {
         Imovel save(Imovel imovel);
         List<Imovel> findAll();
         List<Imovel> consultarPorCpf(String cpf);
+        List<Imovel> consultarPorCep(String cep);
 
     }
 

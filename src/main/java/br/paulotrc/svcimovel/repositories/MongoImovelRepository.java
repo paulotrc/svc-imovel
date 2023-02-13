@@ -11,4 +11,7 @@ public interface MongoImovelRepository extends MongoRepository<Imovel, UUID> {
 
     @Query("{cpf: { $regex: ?0 } })")
     List<Imovel> consultarPorCpf(String cpf);
+
+    @Query("{cep: { $regex: ?0 } })")
+    List<Imovel> consultarPorCep(String cep);
 }

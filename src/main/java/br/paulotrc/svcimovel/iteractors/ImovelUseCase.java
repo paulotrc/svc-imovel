@@ -26,4 +26,14 @@ public class ImovelUseCase {
     public List<Imovel> consultarPorCpf(String cpf) {
         return imovelRepository.consultarPorCpf(cpf);
     }
+
+    public List<Imovel> consultarPorCep(String cep) {
+        return imovelRepository.consultarPorCep(cep);
+    }
+
+    public Boolean cepExiste(String cep){
+
+        return false;
+    }
+
 }

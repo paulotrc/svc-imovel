@@ -10,13 +10,13 @@ spring:
       password: cli_adm
 
 server:
-  port: 8092
+  port: 8093
   servlet:
     context-path: /svc-imovel
 
 management:
   server:
-    port: 9092
+    port: 9093
   context-path: /actuator
   endpoint:
     metrics:
@@ -86,3 +86,7 @@ feign:
       mongo:
         connectTimeout: 40000
         readTimeout: 10000
+
+cep:
+  api:
+    url:  https://cdn.apicep.com/file/apicep/%s.json
