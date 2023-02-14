@@ -15,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ImovelResponse {
 
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private String cpf; //Documento de identificação do dono do imóvel
     private String cep;
     private String estado;
