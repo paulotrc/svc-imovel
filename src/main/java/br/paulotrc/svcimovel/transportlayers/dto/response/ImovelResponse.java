@@ -26,6 +26,7 @@ public class ImovelResponse {
     private String complemento;
     private String referencia;
     private LocalDate dataCompra;
+    private LocalDate dataFimContrato;
     private LocalDate dataQuitacao;
     private Integer parcelasTotais;
     private Integer parcelasPagas;

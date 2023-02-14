@@ -39,6 +39,7 @@ public class ImovelRequest {
     private String referencia;
     @PastOrPresent(message = "DataCompra é obrigatório e não pode ser compra futura.")
     private LocalDate dataCompra;
+    private LocalDate dataFimContrato;
     private LocalDate dataQuitacao;
     @Positive(message = "ParcelasTotais é obrigatório e deve ser maior que zero.")
     private Integer parcelasTotais;
