@@ -32,6 +32,9 @@ public interface ImovelResourceI {
             @ApiResponse(responseCode = "400", description = "Imóvel não encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "404", description = "Erro",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
             @ApiResponse(responseCode = "500", description = "Erro interno",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
@@ -55,6 +58,9 @@ public interface ImovelResourceI {
             @ApiResponse(responseCode = "400", description = "Imóvel não encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "404", description = "Erro",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
             @ApiResponse(responseCode = "500", description = "Erro interno",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
@@ -63,7 +69,7 @@ public interface ImovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
-    @GetMapping (value = "/imovel/{cep}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping (value = "/imovel/cep/{cep}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<ImovelResponse>> getPorCep(
             @Parameter(name = "cep", description = "Cep do imóvel", required = true)
@@ -76,6 +82,9 @@ public interface ImovelResourceI {
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = ImovelRequest.class))}),
             @ApiResponse(responseCode = "400", description = "Informações não encontradas",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "404", description = "Erro",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
             @ApiResponse(responseCode = "500", description = "Erro interno",

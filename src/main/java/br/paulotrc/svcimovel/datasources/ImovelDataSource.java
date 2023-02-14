@@ -3,6 +3,7 @@ package br.paulotrc.svcimovel.datasources;
 import br.paulotrc.svcimovel.entites.Imovel;
 import br.paulotrc.svcimovel.entites.feign.ResponseApiCepData;
 import br.paulotrc.svcimovel.exceptions.bussiness.CepInexistenteException;
+import br.paulotrc.svcimovel.exceptions.feign.GatewayResourceIntegrationRuntimeException;
 import br.paulotrc.svcimovel.repositories.ApiCepRepository;
 import br.paulotrc.svcimovel.repositories.ImovelRepository;
 import br.paulotrc.svcimovel.repositories.MongoImovelRepository;
@@ -50,10 +51,14 @@ public class ImovelDataSource implements ImovelRepository {
 
     @Override
     public List<Imovel> consultarPorCep(String cep) {
-        ResponseApiCepData data = apiCepRepository.consultarPorCep(cep);
-        if(null != data){
-            return mongoImovelRepository.consultarPorCep(cep);
-        }else{
+        try {
+            ResponseApiCepData data = apiCepRepository.consultarPorCep(cep);
+            if(null != data){
+                return mongoImovelRepository.consultarPorCep(cep);
+            }else{
+                throw new CepInexistenteException(HttpStatus.NOT_FOUND.toString(), "Cep Inexistente.", "Validar se API está correta.", MensagemDataSource.Origem.SERVICE_API_CEP);
+            }
+        }catch (GatewayResourceIntegrationRuntimeException e){
             throw new CepInexistenteException(HttpStatus.NOT_FOUND.toString(), "Cep Inexistente.", "Validar se API está correta.", MensagemDataSource.Origem.SERVICE_API_CEP);
         }
     }
