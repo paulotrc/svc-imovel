@@ -1,4 +1,4 @@
-package br.paulotrc.svcimovel.exceptions.infrastructure;
+package br.paulotrc.svcimovel.exceptions.http;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PreconditionFailedException extends RuntimeException {
-
+public class InternalServerErrorException extends RuntimeException {
         private static final long serialVersionUID = 1L;
         private String code;
         private String message;
@@ -17,7 +16,7 @@ public class PreconditionFailedException extends RuntimeException {
 
         @Override
         public String toString() {
-            return "PreconditionFailedException{" +
+            return "InternalServerErrorException{" +
                     "code='" + code + '\'' +
                     ", message='" + message + '\'' +
                     ", developerMessage='" + developerMessage + '\'' +

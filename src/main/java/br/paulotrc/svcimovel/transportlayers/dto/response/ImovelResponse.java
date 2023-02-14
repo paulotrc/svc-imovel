@@ -1,11 +1,13 @@
 package br.paulotrc.svcimovel.transportlayers.dto.response;
 
+import br.paulotrc.svcimovel.entites.enumerados.TipoImovel;
 import br.paulotrc.svcimovel.entites.enumerados.TipoRestricaoImovel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
@@ -23,5 +25,11 @@ public class ImovelResponse {
     private String numero;
     private String complemento;
     private String referencia;
+    private LocalDate dataCompra;
+    private LocalDate dataQuitacao;
+    private Integer parcelasTotais;
+    private Integer parcelasPagas;
+    private TipoRestricaoImovel restricaoImovel;
+    private TipoImovel tipoImovel;
 }
 

@@ -1,4 +1,4 @@
-package br.paulotrc.svcimovel.exceptions.infrastructure;
+package br.paulotrc.svcimovel.exceptions.http;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MethodNotAllowedException extends RuntimeException {
+public class UnauthorizedException extends RuntimeException {
         private static final long serialVersionUID = 1L;
         private String code;
         private String message;
@@ -16,7 +16,7 @@ public class MethodNotAllowedException extends RuntimeException {
 
         @Override
         public String toString() {
-            return "MethodNotAllowedException{" +
+            return "UnauthorizedException{" +
                     "code='" + code + '\'' +
                     ", message='" + message + '\'' +
                     ", developerMessage='" + developerMessage + '\'' +

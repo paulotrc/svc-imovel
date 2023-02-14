@@ -1,4 +1,4 @@
-package br.paulotrc.svcimovel.exceptions.infrastructure;
+package br.paulotrc.svcimovel.exceptions.bussiness;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BadRequestException extends RuntimeException {
+public class CepInexistenteException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     private String code;
     private String message;
@@ -16,7 +16,7 @@ public class BadRequestException extends RuntimeException {
 
     @Override
     public String toString() {
-        return "BadRequestException{" +
+        return "CepInexistenteException{" +
                 "code='" + code + '\'' +
                 ", message='" + message + '\'' +
                 ", developerMessage='" + developerMessage + '\'' +

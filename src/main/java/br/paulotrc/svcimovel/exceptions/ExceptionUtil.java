@@ -2,7 +2,7 @@ package br.paulotrc.svcimovel.exceptions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import br.paulotrc.svcimovel.exceptions.infrastructure.*;
+import br.paulotrc.svcimovel.exceptions.http.*;
 
 public final class ExceptionUtil {
 

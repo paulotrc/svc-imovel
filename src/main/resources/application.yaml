@@ -52,7 +52,7 @@ logging:
 resilience4j:
   circuitbreaker:
     instances:
-      processServiceMongo:
+      processServiceApiCep:
         slidingWindowSize: 50
         minimumNumberOfCalls: 10
         permittedNumberOfCallsInHalfOpenState: 5
@@ -89,4 +89,4 @@ feign:
 
 cep:
   api:
-    url:  https://cdn.apicep.com/file/apicep/%s.json
+    url:  https://cdn.apicep.com/file/apicep/
