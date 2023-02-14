@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Tag(name = "Imovel", description = "Operações com Imovel")
@@ -47,7 +49,7 @@ public interface ImovelResourceI {
     @Valid
     ResponseEntity<List<ImovelResponse>> get(
             @Parameter(name = "cpf", description = "Número do CPF do Cliente", required = true)
-            @PathVariable("cpf") String cpf
+            @Valid @Size(min = 11, max = 11) @PathVariable("cpf") String cpf
     );
 
     @Operation(summary = "Obter as infromações do Imovel pelo CEP")
@@ -73,6 +75,8 @@ public interface ImovelResourceI {
     @Valid
     ResponseEntity<List<ImovelResponse>> getPorCep(
             @Parameter(name = "cep", description = "Cep do imóvel", required = true)
+            @Valid @Size(min = 9, max = 9)
+            @Pattern(regexp = "^\\d{1,5}-\\d{1,3}$", message = "Cep inválido, utilize o seguinte formato: 99999-99.")
             @PathVariable("cep") String cep
     );
 
