@@ -58,6 +58,12 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 5
         #failureRateThreshold: 50
         waitDurationInOpenState: 20s
+      processServiceMongo:
+        slidingWindowSize: 50
+        minimumNumberOfCalls: 10
+        permittedNumberOfCallsInHalfOpenState: 5
+        #failureRateThreshold: 50
+        waitDurationInOpenState: 10s
       processService:
         # tamanho da janela deslizante que é usada para registrar o resultado das chamadas quando o CircuitBreaker é fechado
         slidingWindowSize: 50
@@ -85,6 +91,9 @@ feign:
         readTimeout: 10000
       mongo:
         connectTimeout: 40000
+        readTimeout: 10000
+      apicep:
+        connectTimeout: 10000
         readTimeout: 10000
 
 cep:
