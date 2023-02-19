@@ -2,6 +2,8 @@ package br.paulotrc.svcimovel.transportlayers;
 
 import br.paulotrc.svcimovel.transportlayers.dto.request.ImovelRequest;
 import br.paulotrc.svcimovel.transportlayers.dto.response.ImovelResponse;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -45,6 +47,8 @@ public interface ImovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/imovel/{cpf}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<ImovelResponse>> get(
@@ -71,6 +75,8 @@ public interface ImovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/imovel/cep/{cep}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<ImovelResponse>> getPorCep(
@@ -99,6 +105,8 @@ public interface ImovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/imovel/all", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<ImovelResponse>> getAll();
@@ -116,6 +124,8 @@ public interface ImovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @PostMapping (value = "/imovel", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<ImovelResponse> post(@Valid @RequestBody ImovelRequest imovelRequest);
 
